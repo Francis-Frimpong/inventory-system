@@ -16,7 +16,7 @@
 </button>
 <div class="collapse navbar-collapse" id="nav">
 <ul class="navbar-nav ms-auto">
-<li class="nav-item"><a class="nav-link" href="{{ route('index') }}">Dashboard</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('products.products') }}">Products</a></li>
 <li class="nav-item"><a class="nav-link" href="#">Categories</a></li>
 <li class="nav-item"><a class="nav-link" href="#">Stock In</a></li>
