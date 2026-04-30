@@ -21,7 +21,7 @@
 <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Categories</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('stockin') }}">Stock In</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('stockout') }}">Stock Out</a></li>
-<li class="nav-item"><a class="nav-link" href="#">Reports</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('reports') }}">Reports</a></li>
 </ul>
 </div>
 </div>
