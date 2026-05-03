@@ -12,6 +12,8 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::get('/products', [ProductsController::class, 'index'])->name('products.products');
 
+Route::get('/addproducts', [ProductsController::class, 'create'])->name('products.addproducts');
+
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
 
 Route::get('/stockin', [StockinController::class, 'index'])->name('stockin');
