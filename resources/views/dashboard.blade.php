@@ -46,22 +46,32 @@
     <div class="card-header">Recent Transactions</div>
     <div class="table-responsive">
     <table class="table table-striped mb-0">
-    <thead>
-    <tr>
-    <th>Product</th>
-    <th>Type</th>
-    <th>Quantity</th>
-    <th>Date</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <td>Rice</td>
-    <td>Stock In</td>
-    <td>50</td>
-    <td>2026-03-01</td>
-    </tr>
-    </tbody>
+    @if($recentTransactions->isEmpty())
+        <h3 class="text-center text-muted my-4">
+            No Transactions has been recorded.
+        </h3>
+    @else
+        <thead>
+            <tr>
+            <th>Product</th>
+            <th>Type</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($recentTransactions as $transaction)
+                <tr>
+                    <td>{{ $transaction->name }}</td>
+                    <td>{{ $transaction->type }}</td>
+                    <td>{{ $transaction->quantity }}</td>
+                    <td>
+                        {{ \Carbon\Carbon::parse($transaction->date)->format('M d, Y') }}
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    @endif   
     </table>
     </div>
     </div>

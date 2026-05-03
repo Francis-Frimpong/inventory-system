@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\StockIn;
 use App\Models\StockOut;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -22,13 +23,38 @@ class DashboardController extends Controller
 
         $lowStockProducts = Product::query()->where('quantity', '<', 5)->count();
 
+        // using joins to create recent transaction
+
+        $stockIn = DB::table('stock_ins')
+            ->join('products', 'stock_ins.product_id', '=', 'products.id')
+            ->select(
+                'products.name',
+                DB::raw("'Stock In' as type"),
+                'stock_ins.quantity',
+                'stock_ins.date'
+            );
+
+        $recentTransactions = DB::table('stock_outs')
+            ->join('products', 'stock_outs.product_id', '=', 'products.id')
+            ->select(
+                'products.name',
+                DB::raw("'Stock Out' as type"),
+                'stock_outs.quantity',
+                'stock_outs.date'
+            )
+            ->unionAll($stockIn)
+            ->orderBy('date', 'desc')
+            ->limit(5)
+            ->get();
+
         
 
         return view('dashboard', compact(
             'totalProduct',
             'totalStockIn',
             'totalStockOut',
-            'lowStockProducts'
+            'lowStockProducts',
+            'recentTransactions'
 
         ));
     }
