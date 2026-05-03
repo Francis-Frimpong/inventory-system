@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\StockIn;
+use App\Models\StockOut;
 
 class DashboardController extends Controller
 {
@@ -11,7 +14,23 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        $totalProduct = Product::count('name');
+
+        $totalStockIn = StockIn::sum('quantity');
+
+        $totalStockOut = StockOut::sum('quantity');
+
+        $lowStockProducts = Product::query()->where('quantity', '<', 5)->count();
+
+        
+
+        return view('dashboard', compact(
+            'totalProduct',
+            'totalStockIn',
+            'totalStockOut',
+            'lowStockProducts'
+
+        ));
     }
 
     /**

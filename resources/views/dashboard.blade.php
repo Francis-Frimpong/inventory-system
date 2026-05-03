@@ -8,7 +8,7 @@
     <div class="card text-bg-primary">
     <div class="card-body">
     <h6>Total Products</h6>
-    <h3>120</h3>
+    <h3>{{ $totalProduct }}</h3>
     </div>
     </div>
     </div>
@@ -17,7 +17,7 @@
     <div class="card text-bg-success">
     <div class="card-body">
     <h6>Stock In</h6>
-    <h3>340</h3>
+    <h3>{{$totalStockIn}}</h3>
     </div>
     </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="card text-bg-warning">
     <div class="card-body">
     <h6>Stock Out</h6>
-    <h3>210</h3>
+    <h3>{{$totalStockOut}}</h3>
     </div>
     </div>
     </div>
@@ -35,7 +35,7 @@
     <div class="card text-bg-danger">
     <div class="card-body">
     <h6>Low Stock</h6>
-    <h3>5</h3>
+    <h3>{{$lowStockProducts}}</h3>
     </div>
     </div>
     </div>
