@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class StockIn extends Model
 {
-    //
+    protected $fillable = [
+        'product_id',
+        'quantity',
+        'purchase_price',
+        'supplier'
+    ];
 }
