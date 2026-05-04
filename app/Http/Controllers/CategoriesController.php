@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Category;
+
 
 class CategoriesController extends Controller
 {
@@ -11,7 +13,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('categories');
+        $categories = Category::all();
+        return view('categories', compact('categories'));
     }
 
     /**
@@ -27,7 +30,13 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name'=> 'required|min:3'
+        ]);
+
+        Category::create($request->all());
+
+        return redirect('/categories');
     }
 
     /**
