@@ -28,7 +28,17 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|min:3',
+            'sku' => 'required',
+            'category_id' => 'required',
+            'cost_price' =>'required|numeric|min:0',
+            'selling_price' =>'required|numeric|min:0',
+        ]);
+
+        Product::create($request->all());
+
+        return redirect('/products');
     }
 
     /**

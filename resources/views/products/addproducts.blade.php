@@ -12,7 +12,7 @@
 
         <div class="mb-3">
         <label class="form-label">Product Name</label>
-        <input type="text" class="form-control" name="productname">
+        <input type="text" class="form-control" name="name">
         </div>
 
         <div class="mb-3">
@@ -22,19 +22,19 @@
 
         <div class="mb-3">
         <label class="form-label">Category</label>
-        <select class="form-select" name="category">
+        <select class="form-select" name="category_id">
         <option>Food</option>
         </select>
         </div>
 
         <div class="mb-3">
         <label class="form-label">Cost Price</label>
-        <input type="number" class="form-control" name="costprice">
+        <input type="number" class="form-control" name="cost_price">
         </div>
 
         <div class="mb-3">
         <label class="form-label">Selling Price</label>
-        <input type="number" class="form-control" name="sellingprice">
+        <input type="number" class="form-control" name="selling_price">
         </div>
 
         <button class="btn btn-primary">Save Product</button>
