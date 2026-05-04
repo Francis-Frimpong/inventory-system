@@ -7,36 +7,37 @@
     <div class="card-header">Add Product</div>
     <div class="card-body">
 
-    <form>
+    <form method="POST" action="/addproducts">
+        @csrf
 
-    <div class="mb-3">
-    <label class="form-label">Product Name</label>
-    <input type="text" class="form-control">
-    </div>
+        <div class="mb-3">
+        <label class="form-label">Product Name</label>
+        <input type="text" class="form-control" name="productname">
+        </div>
 
-    <div class="mb-3">
-    <label class="form-label">SKU</label>
-    <input type="text" class="form-control">
-    </div>
+        <div class="mb-3">
+        <label class="form-label">SKU</label>
+        <input type="text" class="form-control" name="sku">
+        </div>
 
-    <div class="mb-3">
-    <label class="form-label">Category</label>
-    <select class="form-select">
-    <option>Food</option>
-    </select>
-    </div>
+        <div class="mb-3">
+        <label class="form-label">Category</label>
+        <select class="form-select" name="category">
+        <option>Food</option>
+        </select>
+        </div>
 
-    <div class="mb-3">
-    <label class="form-label">Cost Price</label>
-    <input type="number" class="form-control">
-    </div>
+        <div class="mb-3">
+        <label class="form-label">Cost Price</label>
+        <input type="number" class="form-control" name="costprice">
+        </div>
 
-    <div class="mb-3">
-    <label class="form-label">Selling Price</label>
-    <input type="number" class="form-control">
-    </div>
+        <div class="mb-3">
+        <label class="form-label">Selling Price</label>
+        <input type="number" class="form-control" name="sellingprice">
+        </div>
 
-    <button class="btn btn-primary">Save Product</button>
+        <button class="btn btn-primary">Save Product</button>
 
     </form>
 
