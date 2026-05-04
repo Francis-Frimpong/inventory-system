@@ -11,29 +11,38 @@
 <div class="card">
 <div class="table-responsive">
 <table class="table table-striped mb-0">
-<thead>
-<tr>
-<th>Name</th>
-<th>SKU</th>
-<th>Category</th>
-<th>Price</th>
-<th>Quantity</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Rice</td>
-<td>SKU001</td>
-<td>Food</td>
-<td>50</td>
-<td>40</td>
-<td>
-<button class="btn btn-sm btn-warning">Edit</button>
-<button class="btn btn-sm btn-danger">Delete</button>
-</td>
-</tr>
-</tbody>
+      @if($products->isEmpty())
+        <h3 class="text-center text-muted my-4">
+            No product has been added.
+        </h3>
+    @else
+        <thead>
+            <tr>
+            <th>Name</th>
+            <th>SKU</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($products as $product)
+                <tr>
+                    <td>{{ $product->name }}</td>
+                    <td>{{ $product->sku }}</td>
+                    <td>{{ $product->category }}</td>
+                    <td>{{ $product->price }}</td>
+                    <td>{{ $product->quantity }}</td>
+                    <td>
+                    <button class="btn btn-sm btn-warning">Edit</button>
+                    <button class="btn btn-sm btn-danger">Delete</button>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+    @endif   
+
 </table>
 </div>
 </div>
