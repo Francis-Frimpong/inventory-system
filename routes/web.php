@@ -22,6 +22,8 @@ Route::prefix('products')
     Route::get('/create',  'create')->name('create');
     
     Route::post('/',  'store')->name('store');
+
+    Route::get('/{id}/edit', 'edit')->name('edit');
 });
 
 // Categories routes (Grouped)

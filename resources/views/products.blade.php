@@ -35,7 +35,7 @@
                     <td>{{ $product->selling_price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>
-                    <button class="btn btn-sm btn-warning">Edit</button>
+                   <a class="btn btn-sm btn-warning" href="{{ route('products.edit', $product->id) }}">Edit</a>
                     <button class="btn btn-sm btn-danger">Delete</button>
                     </td>
                 </tr>

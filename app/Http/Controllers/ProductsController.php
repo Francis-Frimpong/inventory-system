@@ -56,7 +56,11 @@ class ProductsController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $categories = Category::all();
+
+        return view('updateproduct', compact('categories'));
+        
+        
     }
 
     /**
