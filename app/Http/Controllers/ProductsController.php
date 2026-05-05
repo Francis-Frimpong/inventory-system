@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
 
 
 class ProductsController extends Controller
 {
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
         return view('products.products', compact('products'));
     }
 
@@ -19,7 +20,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.addproducts');
+        $categories = Category::all();
+        return view('products.addproducts', compact('categories'));
         
     }
 
@@ -31,7 +33,7 @@ class ProductsController extends Controller
         $request->validate([
             'name' => 'required|min:3',
             'sku' => 'required',
-            'category_id' => 'required',
+            'category_id' => 'required|exists:categories,id',
             'cost_price' =>'required|numeric|min:0',
             'selling_price' =>'required|numeric|min:0',
         ]);

@@ -23,7 +23,11 @@
         <div class="mb-3">
         <label class="form-label">Category</label>
         <select class="form-select" name="category_id">
-        <option>Food</option>
+         @foreach ( $categories as $category )
+
+            <option value={{ $category->id }}>{{ $category->name }}</option>
+             
+         @endforeach   
         </select>
         </div>
 

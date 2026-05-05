@@ -31,8 +31,8 @@
                 <tr>
                     <td>{{ $product->name }}</td>
                     <td>{{ $product->sku }}</td>
-                    <td>{{ $product->category }}</td>
-                    <td>{{ $product->price }}</td>
+                    <td>{{  optional($product->category)->name ?? 'No Category' }}</td>
+                    <td>{{ $product->selling_price }}</td>
                     <td>{{ $product->quantity }}</td>
                     <td>
                     <button class="btn btn-sm btn-warning">Edit</button>
