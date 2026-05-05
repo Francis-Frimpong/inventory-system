@@ -17,7 +17,7 @@
 <div class="collapse navbar-collapse" id="nav">
 <ul class="navbar-nav ms-auto">
 <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ route('products.products') }}">Products</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('categories') }}">Categories</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('stockin') }}">Stock In</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('stockout') }}">Stock Out</a></li>

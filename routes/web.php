@@ -8,13 +8,21 @@ use App\Http\Controllers\StockinController;
 use App\Http\Controllers\StockoutController;
 use Illuminate\Support\Facades\Route;
 
+// Dashboard route (Standalone)
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-Route::get('/products', [ProductsController::class, 'index'])->name('products.products');
+// Product routes (Grouped)
+Route::prefix('products')
+->name('products.')
+->controller(ProductsController::class)
+->group(function (){
 
-Route::get('/addproducts', [ProductsController::class, 'create'])->name('products.addproducts');
-
-Route::post('/addproducts', [ProductsController::class, 'store'])->name('products.addproducts');
+    Route::get('/',  'index')->name('index');
+    
+    Route::get('/create',  'create')->name('create');
+    
+    Route::post('/',  'store')->name('store');
+});
 
 Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
 

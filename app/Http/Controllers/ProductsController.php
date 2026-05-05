@@ -12,7 +12,7 @@ class ProductsController extends Controller
     public function index()
     {
         $products = Product::with('category')->get();
-        return view('products.products', compact('products'));
+        return view('products', compact('products'));
     }
 
      /**
@@ -21,7 +21,7 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = Category::all();
-        return view('products.addproducts', compact('categories'));
+        return view('addproducts', compact('categories'));
         
     }
 
@@ -40,7 +40,7 @@ class ProductsController extends Controller
 
         Product::create($request->all());
 
-        return redirect('/products');
+        return redirect()->route('products.index');
     }
 
     /**
