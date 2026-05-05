@@ -6,7 +6,7 @@
     <h4 class="mb-3">Categories</h4>
     <div class="card mb-4">
     <div class="card-body">
-        <form class="row g-2" method="POST" action="/categories">
+        <form class="row g-2" method="POST" action="{{ route('categories.index')}}">
                 @csrf
     <div class="col-12 col-md-8">
     <input type="text" class="form-control" placeholder="Category name" name="name">

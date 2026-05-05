@@ -24,9 +24,17 @@ Route::prefix('products')
     Route::post('/',  'store')->name('store');
 });
 
-Route::get('/categories', [CategoriesController::class, 'index'])->name('categories');
+// Categories routes (Grouped)
+Route::prefix('categories')
+->name('categories.')
+->controller(CategoriesController::class)
+->group(function () {
+    Route::get('/', 'index')->name('index');
+    
+    Route::post('/',  'store')->name('store');
 
-Route::post('/categories', [CategoriesController::class, 'store'])->name('categories');
+});
+
 
 Route::get('/stockin', [StockinController::class, 'index'])->name('stockin');
 
