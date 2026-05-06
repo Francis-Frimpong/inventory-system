@@ -57,8 +57,9 @@ class ProductsController extends Controller
     public function edit(string $id)
     {
         $categories = Category::all();
+        $product = Product::findOrFail($id);
 
-        return view('updateproduct', compact('categories'));
+        return view('updateproduct', compact('categories', 'product'));
         
         
     }
@@ -68,7 +69,18 @@ class ProductsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+          $request->validate([
+            'name' => 'required|min:3',
+            'sku' => 'required',
+            'category_id' => 'required|exists:categories,id',
+            'cost_price' =>'required|numeric|min:0',
+            'selling_price' =>'required|numeric|min:0',
+        ]);
+            $product = Product::findOrFail($id);   // ✅ find existing
+
+            $product->update($request->all());    
+
+        return redirect()->route('products.index');
     }
 
     /**
