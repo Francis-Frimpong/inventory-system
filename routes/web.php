@@ -26,6 +26,8 @@ Route::prefix('products')
     Route::get('/edit/{id}', 'edit')->name('edit');
 
     Route::patch('/{id}', 'update')->name('update');
+
+    Route::delete('/{id}', 'destroy')->name('destroy');
 });
 
 // Categories routes (Grouped)

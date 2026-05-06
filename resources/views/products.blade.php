@@ -34,9 +34,21 @@
                     <td>{{  optional($product->category)->name ?? 'No Category' }}</td>
                     <td>{{ $product->selling_price }}</td>
                     <td>{{ $product->quantity }}</td>
-                    <td>
-                   <a class="btn btn-sm btn-warning" href="{{ route('products.edit', $product->id) }}">Edit</a>
-                    <button class="btn btn-sm btn-danger">Delete</button>
+                   <td>
+                        <a class="btn btn-sm btn-warning" href="{{ route('products.edit', $product->id) }}">
+                            Edit
+                        </a>
+
+                        <form method="POST" 
+                            action="{{ route('products.destroy', $product->id) }}" 
+                            class="d-inline">
+                            @csrf
+                            @method('DELETE')
+
+                            <button class="btn btn-sm btn-danger">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
