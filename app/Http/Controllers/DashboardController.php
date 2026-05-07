@@ -21,7 +21,18 @@ class DashboardController extends Controller
 
         $totalStockOut = StockOut::sum('quantity');
 
-        $lowStockProducts = Product::query()->where('quantity', '<', 5)->count();
+        // checks if a particular stock of a product is low or high
+
+        // if low,increase the list of product with low stock quantity
+
+        // else if high remove it from the list of product with low stock quantity
+        
+       $lowStockProducts = Product::with('stockins')
+        ->get()
+        ->filter(function ($product) {
+            return $product->stockins->sum('quantity') < 5;
+        })
+        ->count();
 
         // using joins to create recent transaction
 
