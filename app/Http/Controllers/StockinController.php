@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+
 
 class StockinController extends Controller
 {
@@ -11,7 +13,7 @@ class StockinController extends Controller
      */
     public function index()
     {
-        
+
     }
         
         /**
@@ -19,7 +21,9 @@ class StockinController extends Controller
         */
         public function create()
         {
-            return view('stockin');
+            $products = Product::all();
+
+            return view('stockin', compact('products'));
     
         }
 

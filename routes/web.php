@@ -46,7 +46,7 @@ Route::prefix('stockin')
 ->controller(StockinController::class)
 ->group(function () {
     Route::get('/',  'create')->name('create');
-    // Route::post('/',  'store')->name('store');
+    Route::post('/',  'store')->name('store');
 
 });
 

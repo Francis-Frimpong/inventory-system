@@ -8,12 +8,14 @@
     <div class="card">
     <div class="card-body">
 
-    <form>
+    <form method="POST" action="{{ route('stockin.store')}}">
 
     <div class="mb-3">
     <label class="form-label">Product</label>
     <select class="form-select">
-    <option>Rice</option>
+        @foreach ($products as $product)
+            <option value="{{ $product->id }}">{{$product->name}}</option> 
+        @endforeach
     </select>
     </div>
 
