@@ -11,16 +11,17 @@ class StockinController extends Controller
      */
     public function index()
     {
-        return view('stockin');
+        
     }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+        
+        /**
+         * Show the form for creating a new resource.
+        */
+        public function create()
+        {
+            return view('stockin');
+    
+        }
 
     /**
      * Store a newly created resource in storage.

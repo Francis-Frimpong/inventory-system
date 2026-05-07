@@ -41,8 +41,15 @@ Route::prefix('categories')
 
 });
 
+Route::prefix('stockin')
+->name('stockin.')
+->controller(StockinController::class)
+->group(function () {
+    Route::get('/',  'create')->name('create');
+    // Route::post('/',  'store')->name('store');
 
-Route::get('/stockin', [StockinController::class, 'index'])->name('stockin');
+});
+
 
 Route::get('/stockout', [StockoutController::class, 'index'])->name('stockout');
 
