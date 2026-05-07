@@ -33,7 +33,7 @@
                     <td>{{ $product->sku }}</td>
                     <td>{{  optional($product->category)->name ?? 'No Category' }}</td>
                     <td>{{ $product->selling_price }}</td>
-                    <td>{{ $product->quantity }}</td>
+                    <td> {{ $product->stockins->sum('quantity') }}</td>
                    <td>
                         <a class="btn btn-sm btn-warning" href="{{ route('products.edit', $product->id) }}">
                             Edit

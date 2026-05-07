@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\StockIn;
 
 
 class StockinController extends Controller
@@ -32,7 +33,16 @@ class StockinController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'product_id' => 'required|exists:products,id',
+            'quantity' => 'required|integer|min:0',
+            'purchase_price' => 'required|numeric|min:0',
+            'supplier' => 'required|min:3'
+        ]);
+
+        StockIn::create($request->all());
+
+        return redirect()->route('products.index');
     }
 
     /**

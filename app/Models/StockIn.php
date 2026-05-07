@@ -12,4 +12,9 @@ class StockIn extends Model
         'purchase_price',
         'supplier'
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }
