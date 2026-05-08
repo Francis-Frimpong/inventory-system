@@ -61,4 +61,5 @@ Route::prefix('stockout')
 
 });
 
+// Report route (Standalone)
 Route::get('/report', [ReportController::class, 'index'])->name('reports');

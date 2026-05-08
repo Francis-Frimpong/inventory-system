@@ -90,6 +90,19 @@ class ProductsController extends Controller
     {
         $product = Product::findOrFail($id);
 
+        
+
+        if (
+            $product->stockins()->exists() ||
+            $product->stockouts()->exists()
+        ) {
+
+            return back()->with(
+                'error',
+                'Cannot delete product with transaction history.'
+            );
+        }
+
         $product->delete();
 
         return redirect()->route('products.index');
