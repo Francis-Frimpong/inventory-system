@@ -16,7 +16,7 @@ return new class extends Migration
 
             $table->foreignId('product_id')->constrained();
 
-            $table->integer('quantity');
+            $table->integer('quantity')->default(0);
             $table->decimal('purchase_price', 10, 2)->nullable();
 
             $table->string('supplier', 150)->nullable();

@@ -41,6 +41,7 @@ Route::prefix('categories')
 
 });
 
+// stockin routes (Grouped)
 Route::prefix('stockin')
 ->name('stockin.')
 ->controller(StockinController::class)
@@ -50,7 +51,14 @@ Route::prefix('stockin')
 
 });
 
+// Stockout routes (Grouped)
+Route::prefix('stockout')
+->name('stockout.')
+->controller(StockoutController::class)
+->group(function () {
+    Route::get('/',  'create')->name('create');
+    Route::post('/',  'store')->name('store');
 
-Route::get('/stockout', [StockoutController::class, 'index'])->name('stockout');
+});
 
 Route::get('/report', [ReportController::class, 'index'])->name('reports');

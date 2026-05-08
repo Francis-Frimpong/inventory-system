@@ -20,7 +20,7 @@
 <li class="nav-item"><a class="nav-link" href="{{ route('products.index') }}">Products</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('categories.index') }}">Categories</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('stockin.create') }}">Stock In</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ route('stockout') }}">Stock Out</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ route('stockout.create') }}">Stock Out</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ route('reports') }}">Reports</a></li>
 </ul>
 </div>

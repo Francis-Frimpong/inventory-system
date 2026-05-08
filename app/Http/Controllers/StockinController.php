@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\StockIn;
+use Illuminate\Support\Facades\DB;
+
 
 
 class StockinController extends Controller
@@ -40,7 +42,20 @@ class StockinController extends Controller
             'supplier' => 'required|min:3'
         ]);
 
-        StockIn::create($request->all());
+        DB::transaction(function () use ($request) {
+
+        StockIn::create([
+            'product_id' => $request->product_id,
+            'quantity' => $request->quantity,
+            'purchase_price' => $request->purchase_price,
+            'supplier' => $request->supplier,
+        ]);
+
+        $product = Product::findOrFail($request->product_id);
+
+        $product->increment('quantity', $request->quantity);
+
+    });
 
         return redirect()->route('products.index');
     }

@@ -10,7 +10,8 @@ class StockIn extends Model
         'product_id',
         'quantity',
         'purchase_price',
-        'supplier'
+        'supplier',
+        'quantity'
     ];
 
     public function product()
